@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoDetail = ({ video }) => {
+const VideoDetail = ({ video, addVideoToPlaylist }) => {
     if (!video) {
         return <div>Loading...</div>;
     }
@@ -15,6 +15,7 @@ const VideoDetail = ({ video }) => {
                 </div>
                 <h4 className="ui header">{video.snippet.title}</h4>
                 <p>{video.snippet.description}</p>
+                <button className="ui button" onClick={() => addVideoToPlaylist(video)}>Add Video to Playlist</button>
             </div>
         </div>
     )
