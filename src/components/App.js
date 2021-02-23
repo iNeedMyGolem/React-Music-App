@@ -37,7 +37,17 @@ class App extends React.Component {
     }
 
     addVideoToPlaylist = (video) => {
-            this.setState({ playlistVideos: [...this.state.playlistVideos, video] });
+        this.setState({ playlistVideos: [...this.state.playlistVideos, video] });
+    }
+
+    removeVideoFromPlaylist = (e) => {
+        const array = [...this.state.playlistVideos];
+        const index = array.findIndex((video) => {
+            return video.id.videoId == e.id.videoId
+        });
+        const deletedItem = array.splice(index, 1);
+        const newArray = array.filter((video) => video !== deletedItem)
+        this.setState({ playlistVideos: newArray });
     }
 
     render() {
@@ -54,7 +64,7 @@ class App extends React.Component {
                         </div>
                     </div>
                 </div>
-                <VideoPlaylist playlistVideos={this.state.playlistVideos} onVideoSelect={this.onVideoSelect} />
+                <VideoPlaylist playlistVideos={this.state.playlistVideos} onVideoSelect={this.onVideoSelect} removeVideoFromPlaylist={this.removeVideoFromPlaylist} />
             </div>
         );
     }

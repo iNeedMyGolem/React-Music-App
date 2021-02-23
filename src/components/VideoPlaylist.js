@@ -1,7 +1,7 @@
 import React from 'react';
 import VideoItem from './VideoItem';
 
-const VideoPlaylist = ({ playlistVideos, onVideoSelect }) => {
+const VideoPlaylist = ({ playlistVideos, onVideoSelect, removeVideoFromPlaylist }) => {
     if(playlistVideos.length == 0) {
         return (
             <div className="ui segment">
@@ -12,11 +12,14 @@ const VideoPlaylist = ({ playlistVideos, onVideoSelect }) => {
     }
 
     const renderedPlaylist = playlistVideos.map((video) => {
-        return <VideoItem 
-                    key={video.id.videoId}
-                    video={video}
-                    onVideoSelect={onVideoSelect}
-                />
+        return (
+            <VideoItem 
+                key={video.id.videoId}
+                video={video}
+                onVideoSelect={onVideoSelect}
+            />
+        )
+
     });
 
     return (
