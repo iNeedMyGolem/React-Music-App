@@ -13,11 +13,14 @@ const VideoPlaylist = ({ playlistVideos, onVideoSelect, removeVideoFromPlaylist 
 
     const renderedPlaylist = playlistVideos.map((video) => {
         return (
-            <VideoItem 
-                key={video.id.videoId}
-                video={video}
-                onVideoSelect={onVideoSelect}
-            />
+            <>
+                <VideoItem 
+                    key={video.id.videoId}
+                    video={video}
+                    onVideoSelect={onVideoSelect}
+                />
+                <button onClick={() => removeVideoFromPlaylist(video)} style={{ marginBlock: '10px' }} className="ui button">Remove Video</button>
+            </>
         )
 
     });
