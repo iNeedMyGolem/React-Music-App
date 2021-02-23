@@ -54,7 +54,7 @@ class App extends React.Component {
                         </div>
                     </div>
                 </div>
-                <VideoPlaylist playlistVideos={this.state.playlistVideos} />
+                <VideoPlaylist playlistVideos={this.state.playlistVideos} onVideoSelect={this.onVideoSelect} />
             </div>
         );
     }
